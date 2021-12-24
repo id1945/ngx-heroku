@@ -1,27 +1,46 @@
-# NgxHeroku
+# 1. Create Angular App
+````bash
+ng new ngx-heroku
+````
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.29.
+# 2. Configure Angular App to Deploy Properly on Heroku
+```bash
+npm install express --save
+```
 
-## Development server
+#### ✪ Create a server.js
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```javascript
+//Install express server
+const express = require('express');
+const app = express();
+// Serve only the static files form the dist directory
+app.use(express.static('./dist/angular-app-heroku'));
+app.get('/*', (req, res) =>
+    res.sendFile('index.html', {root: 'dist/angular-app-heroku/'}),
+);
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
+```
 
-## Code scaffolding
+#### ✪ Change start command in package.json
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```json
+{
+  "name": "ngx-heroku",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "ng build --prod"
+  }
+}
+```
 
-## Build
+# 3. Git to push source code
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# 4. Login to Heroku and create a new app in Heroku
+![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/connect-git-project.png)
+![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/config-deploy.png)
+![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/ngx-heroku.png)
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### https://ngx-heroku.herokuapp.com

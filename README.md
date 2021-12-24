@@ -39,8 +39,8 @@ app.listen(process.env.PORT || 8080);
 # 3. Git to push source code
 
 # 4. Login to Heroku and create a new app in Heroku
-![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/connect-git-project.png)
-![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/config-deploy.png)
-![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/ngx-heroku.png)
+![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/src/assets/connect-git-project.png)
+![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/src/assets/config-deploy.png)
+![Logo](https://raw.githubusercontent.com/id1945/ngx-heroku/master/src/assets/ngx-heroku.png)
 
 ### https://ngx-heroku.herokuapp.com
